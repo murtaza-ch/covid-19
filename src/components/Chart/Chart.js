@@ -4,17 +4,13 @@ import {Line,Bar} from 'react-chartjs-2'
 import styles from './Chart.module.css';
 
 const Chart = ({data:{confirmed,recovered,deaths},country}) => {
-    console.log(confirmed,recovered,deaths);
     
     const [dailyData,setDailyData]=useState([]);
 
     useEffect(()=>{
         const fetchApi=async ()=>{
             setDailyData(await fetchDailyData());
-        }
-
-        console.log(dailyData);
-        
+        }        
 
         fetchApi();
     },[])
